@@ -10,6 +10,7 @@ import { CardsComponent } from './cards/cards.component';
 import { ChartsModule } from './charts/charts.module';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login.guard';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { LoginComponent } from './login/login.component';
     // ChartsModule, 使用 lazy loading 後就不要再 import 這個 module
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
