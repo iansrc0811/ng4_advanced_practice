@@ -14,7 +14,15 @@ export class CardsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.param = this.route.snapshot.params['type'];
+    // 取得當下的params，但如果是相同路由切換路由變數時，oninit就不會跑，路由參數也不會重新取得
+    // this.param = this.route.snapshot.params['type'];
+    this.route.params.subscribe(
+      params => this.param = params['type']);
+  }
+
+  getCards(num) {
+    // tslint:disable-next-line:radix
+    this.router.navigate(['/', 'cards', parseInt(this.param) + num]);
   }
 
 }
