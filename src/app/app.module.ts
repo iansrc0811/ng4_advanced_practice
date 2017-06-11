@@ -19,7 +19,7 @@ import { ChartsModule } from './charts/charts.module';
   ],
   imports: [
     BrowserModule,
-    ChartsModule,
+    // ChartsModule, 使用 lazy loading 後就不要再 import 這個 module
     AppRoutingModule
   ],
   providers: [],
