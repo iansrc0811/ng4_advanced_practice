@@ -4,6 +4,7 @@ import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardsComponent } from './cards/cards.component';
+import { FlotComponent } from './charts/flot/flot.component';
 
 const fallbackRoute: Route = {
   path: '**',
@@ -15,6 +16,11 @@ const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'cards', component: CardsComponent },
+  { path: 'charts',
+    children: [
+      { path: 'flot', component: FlotComponent }
+    ]
+  },
   fallbackRoute
 ];
 
