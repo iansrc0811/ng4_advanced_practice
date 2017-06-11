@@ -6,9 +6,22 @@
 </div>
 
 <ul>
-  <li><a routerLink="/">Home</a></li>
-  <li><a [routerLink]="['/page1']">page1</a></li>
-  <li><a [routerLink]="['/', 'page2']">Page 2</a></li>
+  <li>
+    <a [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/">
+      Home
+    </a>
+  </li>
+  <!--routerLinkActiveOptions 避免被子路由包含到-->
+  <li>
+    <a routerLinkActive="active" [routerLink]="['/page1']">
+      page1
+    </a>
+  </li>
+  <li>
+    <a routerLinkActive="active" [routerLink]="['/', 'page2']">
+      Page 2
+    </a>
+  </li>
 </ul>
 
 <router-outlet></router-outlet>
