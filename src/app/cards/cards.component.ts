@@ -8,6 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CardsComponent implements OnInit {
   param: string;
+  p1: string;
+  p2: string;
   constructor(
     private router: Router,
     private route: ActivatedRoute
@@ -18,11 +20,19 @@ export class CardsComponent implements OnInit {
     // this.param = this.route.snapshot.params['type'];
     this.route.params.subscribe(
       params => this.param = params['type']);
+
+    this.route.queryParams.subscribe(
+      params => {
+        this.p1 = params['p1'];
+        this.p2 = params['p2'];
+      }
+    )
   }
 
   getCards(num) {
     // tslint:disable-next-line:radix
-    this.router.navigate(['/', 'cards', parseInt(this.param) + num]);
+    this.router.navigate(['/', 'cards', parseInt(this.param) + num], {
+      queryParams: { name: 'Ian', location: 'Taipei'} // 傳入queryParams
+    });
   }
-
 }
