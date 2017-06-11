@@ -15,7 +15,7 @@ const fallbackRoute: Route = {
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'cards', component: CardsComponent },
+  { path: 'cards/:type', component: CardsComponent },
   { path: 'charts',
     children: [
       { path: 'flot', component: FlotComponent }
