@@ -8,6 +8,8 @@ import { Page2Component } from './page2/page2.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardsComponent } from './cards/cards.component';
 import { ChartsModule } from './charts/charts.module';
+import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ChartsModule } from './charts/charts.module';
     Page2Component,
     DashboardComponent,
     CardsComponent,
+    LayoutComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
