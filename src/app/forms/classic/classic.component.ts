@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from "@angular/forms/forms";
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-classic',
@@ -13,7 +13,8 @@ export class ClassicComponent implements OnInit {
 
   ngOnInit() {
     this.data = {
-      'title': 'my title'
+      'title': 'my title',
+      'subtitle': 'my subtitle'
     }
   }
 

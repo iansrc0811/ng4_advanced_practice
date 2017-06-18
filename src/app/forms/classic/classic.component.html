@@ -4,29 +4,32 @@
     <p class="mb-lg">Standard Bootstrap form and input controls with customized UI variations</p>
     <div class="card">
       <div class="card-body">
-        <form class="form-horizontal" #form="ngForm" (ngSubmit)="doSubmit(form, $event)">
+        <pre>
+          data: {{data |json}}
+        </pre>
+        <pre>
+          form: {{form['value'] | json}}
+        </pre>
+        <form class="form-horizontal" #form="ngForm" (ngSubmit)="doSubmit(form)">
           <fieldset>
-            <div class="form-group"
-            [class.has-error]="(mTitle.touched && mTitle.invalid)"
-            [class.has-success]="mTitle.touched && mTitle.valid">
+            <div class="form-group" [class.has-error]="(mTitle.touched && mTitle.invalid)" [class.has-success]="mTitle.touched && mTitle.valid">
               <label class="col-sm-2 control-label">Title</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control rounded"
-                [(ngModel)]="data.title" required
-                #mTitle="ngModel"
-                name="title">
+                <input type="text" class="form-control rounded" [(ngModel)]="data.title" required #mTitle="ngModel" name="title">
               </div>
             </div>
           </fieldset>
+          <div ngModelGroup="metadata" #metaData="ngModelGroup">
+            <fieldset>
+              <div class="form-group" [class.has-error]="(mTitle.touched && mTitle.invalid)" [class.has-success]="mTitle.touched && mTitle.valid">
+                <label class="col-sm-2 control-label">Subtitle</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control rounded" [(ngModel)]="data.subtitle" required #mSubtitle="ngModel" name="subtitle">
+                </div>
+              </div>
+            </fieldset>
+          </div>
           <button type="submit">送出</button>
-          <fieldset>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">With help</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control"><span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-              </div>
-            </div>
-          </fieldset>
           <fieldset>
             <div class="form-group">
               <label for="input-id-1" class="col-sm-2 control-label">Label focus</label>
