@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { ChartsModule } from './charts/charts.module';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login.guard';
+import { ClassicComponent } from './forms/classic/classic.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,14 @@ import { LoginGuard } from './login.guard';
     CardsComponent,
     LayoutComponent,
     LoginComponent,
+    ClassicComponent,
   ],
   imports: [
     BrowserModule,
     // ChartsModule, 使用 lazy loading 後就不要再 import 這個 module
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [LoginGuard],
   bootstrap: [AppComponent]

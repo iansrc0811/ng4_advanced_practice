@@ -7,6 +7,7 @@ import { CardsComponent } from './cards/cards.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login.guard';
+import { ClassicComponent } from './forms/classic/classic.component';
 
 const fallbackRoute: Route = {
   path: '**',
@@ -18,13 +19,14 @@ const routes: Routes = [
   {
     path: '', component: LayoutComponent,
     children: [
-      { path: '', component: DashboardComponent },
+      { path: '', redirectTo: 'forms/classic', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'cards/:type', component: CardsComponent, canActivate: [LoginGuard] },
       {
         path: 'charts',
         loadChildren: './charts/charts.module#ChartsModule'
       },
+      { path: 'forms/classic', component: ClassicComponent }
     ]
   },
   { path: 'login', component: LoginComponent },
