@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reactive.component.css']
 })
 export class ReactiveComponent implements OnInit {
-
-  constructor() { }
+  form: FormGroup;
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      'title': 'This is title',
+      'subtitle': 'This is subtitle'
+    })
   }
 
 }
