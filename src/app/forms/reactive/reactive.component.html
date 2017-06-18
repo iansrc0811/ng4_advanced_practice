@@ -47,7 +47,8 @@
                       <div class="form-group">
                         <label class="col-sm-2 control-label">Address {{ i+1 }}</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" [formControlName]="i">
+                          <input type="text" class="form-control" [formControlName]="i"
+                          (keyup.enter)="addNewAddress()">
                         </div>
                       </div>
                     </fieldset>
