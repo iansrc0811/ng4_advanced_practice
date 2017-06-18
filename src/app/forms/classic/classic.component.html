@@ -15,10 +15,24 @@
             <div class="form-group" [class.has-error]="(mTitle.touched && mTitle.invalid)" [class.has-success]="mTitle.touched && mTitle.valid">
               <label class="col-sm-2 control-label">Title</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control rounded" [(ngModel)]="data.title" required #mTitle="ngModel" name="title">
+                <input type="text" class="form-control rounded" [(ngModel)]="data.title"
+                  required minlength="3" maxlength="20"
+                  #mTitle="ngModel" name="title">
               </div>
             </div>
           </fieldset>
+          <pre>
+            mTitle.value = {{ mTitle['value'] }}
+            mTitle.valid = {{ mTitle['valid'] }}
+            mTitle.invalid = {{ mTitle['invalid'] }}
+            mTitle.dirty = {{ mTitle['dirty'] }}
+            mTitle.pristine = {{ mTitle['pristine'] }}
+            mTitle.touched = {{ mTitle['touched'] }}
+            mTitle.untouched = {{ mTitle['untouched'] }}
+            mTitle.enabled = {{ mTitle['enabled'] }}
+            mTitle.disabled = {{ mTitle['disabled'] }}
+            mTitle.errors = {{ mTitle['errors'] | json }}
+          </pre>
           <div ngModelGroup="metadata" #metaData="ngModelGroup">
             <fieldset>
               <div class="form-group" [class.has-error]="(mTitle.touched && mTitle.invalid)" [class.has-success]="mTitle.touched && mTitle.valid">
