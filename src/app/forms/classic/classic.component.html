@@ -4,10 +4,11 @@
     <p class="mb-lg">Standard Bootstrap form and input controls with customized UI variations</p>
     <div class="card">
       <div class="card-body">
-        <form method="get" action="/" class="form-horizontal">
+        <form class="form-horizontal" #form="ngForm" (ngSubmit)="doSubmit(form, $event)">
           <fieldset>
             <div class="form-group"
-            [class.has-error]="mTitle.invalid">
+            [class.has-error]="(mTitle.touched && mTitle.invalid)"
+            [class.has-success]="mTitle.touched && mTitle.valid">
               <label class="col-sm-2 control-label">Title</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control rounded"
@@ -17,6 +18,7 @@
               </div>
             </div>
           </fieldset>
+          <button type="submit">送出</button>
           <fieldset>
             <div class="form-group">
               <label class="col-sm-2 control-label">With help</label>
